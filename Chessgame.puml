@@ -1,0 +1,63 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+skinparam classFontStyle Bold
+hide enum methods
+
+class Board {
+    - board : Piece[][]
+    - isChecked() : Boolean
+    + getPiece(Position) : Piece
+}
+
+class Player {
+    - points : Integer
+    - name : String
+    + movePiece(piece : Piece)
+}
+
+class Piece {
+    - value : Integer
+    - color : String
+    - range : Integer
+    + {abstract} moves() : Integer[][]
+
+}
+
+class King extends Piece {
+    - asMoved : Boolean
+}
+
+class Queen extends Piece {
+
+}
+
+class Pawn extends Piece {
+    - asMoved : Boolean
+}
+
+class Bishop extends Piece {
+
+}
+
+class Knight extends Piece {
+
+}
+
+class Rook extends Piece {
+    - asMoved : Boolean
+}
+
+enum Color {
+    WHITE
+    BLACK
+}
+
+Board *--> Piece : "*\n -board" <<use>>
+Player *-l-> Piece : "*\n -pieces" <<use>>
+Player *--> Piece : "*\n -capturedPieces" <<use>>
+Piece *--> Color : "1\n -color" <<use>>
+
+@enduml
