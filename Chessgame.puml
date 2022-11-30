@@ -61,3 +61,84 @@ Player *--> Piece : "*\n -capturedPieces" <<use>>
 Piece *--> Color : "1\n -color" <<use>>
 
 @enduml
+
+@startuml
+'https://plantuml.com/sequence-diagram
+
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+skinparam classFontStyle Bold
+hide enum methods
+
+class Board {
+
+
+    - board : Case[]
+    - isChecked() : Boolean
+    + getPiece(Position) : Piece
+}
+
+class Player {
+    - points : Integer
+    - name : String
+    + movePiece(piece : Piece , case : Case)
+}
+
+class Piece {
+
+    - value : Integer
+    - etatDePiece : String
+    - color : String
+    - moves : Integer
+    - range : Integer
+    + {abstract} peutCapturer() : Boolean
+    + {abstract} moves() : Integer[][]
+    + {abstract} setEtat(etat : String)
+}
+
+class Case{
+- piece : Piece
+- cordX : Integer
+- cordY : Integer
+- CaseColor : Color
++ setPiece(piece : Piece)
++ getPiece()
++ IsEmpty()
+
+}
+
+class King extends Piece {
+    - asMoved : Boolean
+}
+
+class Queen extends Piece {
+
+}
+
+class Pawn extends Piece {
+    - asMoved : Boolean
+}
+
+class Bishop extends Piece {
+
+}
+
+class Knight extends Piece {
+
+}
+
+class Rook extends Piece {
+    - asMoved : Boolean
+}
+
+enum Color {
+    WHITE
+    BLACK
+}
+
+Board *--> Case : "*\n -board" <<use>>
+Player *-l-> Piece : "*\n -pieces" <<use>>
+Player *--> Piece : "*\n -capturedPieces" <<use>>
+Piece *--> Color : "1\n -color" <<use>>
+
+@enduml
