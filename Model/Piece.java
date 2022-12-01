@@ -7,6 +7,13 @@ public abstract class Piece {
 
     int range;
 
+    Colors color;
+
+    public Piece (Colors pColor)
+    {
+        color = pColor;
+    }
+
     abstract ArrayList<int[]> moves();
 
 }

@@ -8,9 +8,11 @@ public class Pawn extends Piece{
 
     boolean asMoved;
 
-    public Pawn(){
+    public Pawn(Colors pColor){
+        super(pColor);
         asMoved = false;
         value = 1;
+        range = 1;
     }
 
     public ArrayList<int[]> moves()

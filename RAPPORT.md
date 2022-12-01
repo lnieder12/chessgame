@@ -12,6 +12,10 @@ Tableau de 2 dimensions de la classe Case.
 
 Sera responsable pour la vérification des mouvements possible d'une pièce.
 
+01/12/2022 <br>
+
+Responsable pour savoir si un roi est en échec. Vérifie quelles sont les pièces qui le met en échec (dans le cas d'un échec en début de tour). Vérifie si on se met en échec après un mouvement (à la vérif)
+
 
 Piece
 -----

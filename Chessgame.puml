@@ -7,47 +7,76 @@ skinparam classFontStyle Bold
 hide enum methods
 
 class Board {
-    - board : Piece[][]
-    - isChecked() : Boolean
-    + getPiece(Position) : Piece
+    - board : Piece[]
+    + getPiece(Tuple : position) : Piece
+}
+
+class Case{
+- piece : Piece
+- cordX : Integer
+- cordY : Integer
++ setPiece(piece : Piece)
++ getPiece() : Piece
++ IsEmpty() : Boolean
+
 }
 
 class Player {
     - points : Integer
     - name : String
-    + movePiece(piece : Piece)
+    - isChecked() : Boolean
 }
 
-class Piece {
+abstract class Piece {
     - value : Integer
-    - color : String
+    - color : Color
     - range : Integer
-    + {abstract} moves() : Integer[][]
+    + Piece(color : Colors)
+    + {abstract} moves() : Integer[]
 
 }
 
 class King extends Piece {
     - asMoved : Boolean
+    + King(color : Color)
+    + moves() : Integer[]
 }
 
 class Queen extends Piece {
-
+    - value : Integer
+    - color : String
+    - range : Integer
+    + moves() : Integer[]
 }
 
 class Pawn extends Piece {
     - asMoved : Boolean
+    - value : Integer
+    - color : String
+    - range : Integer
+    + moves() : Integer[]
 }
 
 class Bishop extends Piece {
-
+    - value : Integer
+    - color : String
+    - range : Integer
+    + moves() : Integer[]
 }
 
 class Knight extends Piece {
-
+    - value : Integer
+    - color : String
+    - range : Integer
+    + moves() : Integer[]
 }
 
 class Rook extends Piece {
     - asMoved : Boolean
+    - value : Integer
+    - color : String
+    - range : Integer
+    + moves() : Integer[]
 }
 
 enum Color {
@@ -55,9 +84,9 @@ enum Color {
     BLACK
 }
 
-Board *--> Piece : "*\n -board" <<use>>
+Board o--> Piece : "*\n -board" <<use>>
 Player *-l-> Piece : "*\n -pieces" <<use>>
-Player *--> Piece : "*\n -capturedPieces" <<use>>
+Player o--> Piece : "*\n -capturedPieces" <<use>>
 Piece *--> Color : "1\n -color" <<use>>
 
 @enduml
@@ -87,23 +116,19 @@ class Player {
 class Piece {
 
     - value : Integer
-    - etatDePiece : String
     - color : String
     - moves : Integer
     - range : Integer
-    + {abstract} peutCapturer() : Boolean
     + {abstract} moves() : Integer[][]
-    + {abstract} setEtat(etat : String)
 }
 
 class Case{
 - piece : Piece
 - cordX : Integer
 - cordY : Integer
-- CaseColor : Color
 + setPiece(piece : Piece)
-+ getPiece()
-+ IsEmpty()
++ getPiece() : Piece
++ IsEmpty() : Boolean
 
 }
 
