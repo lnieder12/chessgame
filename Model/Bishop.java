@@ -14,7 +14,7 @@ public class Bishop extends Piece{
 
     public ArrayList<int[]> moves()
     {
-        return new ArrayList(Arrays.asList(new int[] {1,1}, new int[] {1,-1}, new int[] {-1,-1}, new int[] {-1,-1}));
+        return new ArrayList(Arrays.asList(new int[] {1,1}, new int[] {1,-1}, new int[] {-1,-1}, new int[] {-1,-1})); // Déplacements diagonales
     }
 
 }

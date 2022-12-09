@@ -7,7 +7,8 @@ public class King extends Piece{
 
     boolean asMoved;
 
-    public King(Colors pColor){
+    public King(Colors pColor)
+    {
         super(pColor);
         asMoved = false;
         value = 0;
@@ -16,8 +17,8 @@ public class King extends Piece{
 
     public ArrayList<int[]> moves()
     {
-        return new ArrayList(Arrays.asList(new int[] {1,0}, new int[] {-1,0}, new int[] {0,1}, new int[] {0,-1}
-                , new int[] {1,1}, new int[] {1,-1}, new int[] {-1,-1}, new int[] {-1,-1}));
+        return new ArrayList(Arrays.asList(new int[] {1,0}, new int[] {-1,0}, new int[] {0,1}, new int[] {0,-1} // Déplacements latéraux
+                                        , new int[] {1,1}, new int[] {1,-1}, new int[] {-1,-1}, new int[] {-1,-1})); // Déplacements diagonales
     }
 
 }

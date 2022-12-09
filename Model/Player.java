@@ -4,37 +4,33 @@ import java.util.ArrayList;
 
 public class Player {
 
-    private ArrayList<Piece> pieces;
-
+    private Colors color;
     private int points;
-
     private String name;
+
+    private ArrayList<Piece> capturedPieces;
 
     public Player(String pName, Colors pColor)
     {
-        pieces.add(new Rook(pColor));
-        pieces.add(new Knight(pColor));
-        pieces.add(new Bishop(pColor));
-        pieces.add(new Queen(pColor));
-        pieces.add(new King(pColor));
-        pieces.add(new Bishop(pColor));
-        pieces.add(new Knight(pColor));
-        pieces.add(new Rook(pColor));
-        for(int i = 0; i < 8; i++)
-            pieces.add(new Pawn(pColor));
+
+        color = pColor;
 
         points = 0;
 
         name = pName;
 
+        capturedPieces = new ArrayList<>();
+
     }
 
-    public boolean isChecked(){
-        return false;
+    public void addPoints(int pts)
+    {
+        points += pts;
     }
 
-    public ArrayList<Piece> getPieces(){
-        return pieces;
+    public void addCapturedPiece(Piece p)
+    {
+        capturedPieces.add(p);
     }
 
 }

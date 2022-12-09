@@ -3,9 +3,9 @@ package Model;
 import java.util.ArrayList;
 
 public abstract class Piece {
-    int value;
+    protected int value;
 
-    int range;
+    protected int range;
 
     Colors color;
 
@@ -13,6 +13,10 @@ public abstract class Piece {
     {
         color = pColor;
     }
+
+    public int getRange(){return range;}
+
+    public Colors getColor(){return color;}
 
     abstract ArrayList<int[]> moves();
 

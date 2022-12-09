@@ -6,88 +6,91 @@ skinparam classAttributeIconSize 0
 skinparam classFontStyle Bold
 hide enum methods
 
-class Board {
-    - board : Piece[]
-    + getPiece(Tuple : position) : Piece
+package Model{
+
+    class Game {
+
+        + Game(board : Board, pW : Player, pB : Player)
+
+    }
+
+    class Board {
+        + getPiece(Integer[] : position) : Piece
+    }
+
+    class Player {
+        - points : Integer
+        - name : String
+        + Player(pName : String, pColor : Color)
+        + addPoints(pts : Integer)
+        + addCapturedPiece(p : Piece)
+    }
+
+    abstract class Piece {
+        - value : Integer
+        - range : Integer
+        + Piece(pColor : Color)
+        + {abstract} moves() : Integer[]
+
+    }
+
+    class King extends Piece {
+        - asMoved : Boolean
+        - range : Integer
+        + King(color : Color)
+        + moves() : Integer[]
+    }
+
+    class Queen extends Piece {
+        - value : Integer
+        - range : Integer
+        + Queen(color : Color)
+        + moves() : Integer[]
+    }
+
+    class Pawn extends Piece {
+        - asMoved : Boolean
+        - value : Integer
+        - range : Integer
+        + Pawn(color : Color)
+        + moves() : Integer[]
+    }
+
+    class Bishop extends Piece {
+        - value : Integer
+        - range : Integer
+        + Bishop(color : Color)
+        + moves() : Integer[]
+    }
+
+    class Knight extends Piece {
+        - value : Integer
+        - range : Integer
+        + Knight(color : Color)
+        + moves() : Integer[]
+    }
+
+    class Rook extends Piece {
+        - asMoved : Boolean
+        - value : Integer
+        - range : Integer
+        + Rook(color : Color)
+        + moves() : Integer[]
+    }
+
+    enum Color {
+        WHITE
+        BLACK
+    }
 }
 
-class Case{
-- piece : Piece
-- cordX : Integer
-- cordY : Integer
-+ setPiece(piece : Piece)
-+ getPiece() : Piece
-+ IsEmpty() : Boolean
-
-}
-
-class Player {
-    - points : Integer
-    - name : String
-    - isChecked() : Boolean
-}
-
-abstract class Piece {
-    - value : Integer
-    - color : Color
-    - range : Integer
-    + Piece(color : Colors)
-    + {abstract} moves() : Integer[]
-
-}
-
-class King extends Piece {
-    - asMoved : Boolean
-    + King(color : Color)
-    + moves() : Integer[]
-}
-
-class Queen extends Piece {
-    - value : Integer
-    - color : String
-    - range : Integer
-    + moves() : Integer[]
-}
-
-class Pawn extends Piece {
-    - asMoved : Boolean
-    - value : Integer
-    - color : String
-    - range : Integer
-    + moves() : Integer[]
-}
-
-class Bishop extends Piece {
-    - value : Integer
-    - color : String
-    - range : Integer
-    + moves() : Integer[]
-}
-
-class Knight extends Piece {
-    - value : Integer
-    - color : String
-    - range : Integer
-    + moves() : Integer[]
-}
-
-class Rook extends Piece {
-    - asMoved : Boolean
-    - value : Integer
-    - color : String
-    - range : Integer
-    + moves() : Integer[]
-}
-
-enum Color {
-    WHITE
-    BLACK
-}
-
-Board o--> Piece : "*\n -board" <<use>>
-Player *-l-> Piece : "*\n -pieces" <<use>>
-Player o--> Piece : "*\n -capturedPieces" <<use>>
-Piece *--> Color : "1\n -color" <<use>>
+Game *--> "1\n-board" Board : <<has>>
+Game *--> "1\n-pWhite" Player : <<has>>
+Game *--> "1\n-pBlack" Player : <<has>>
+Board *--> "2..32\n-board" Piece :  <<use>>
+Player o--> "0..15\n-capturedPieces" Piece : <<use>>
+Piece *--> "1\n-color" Color :  <<has>>
+Player *--> "1\n-color" Color :  <<has>>
 
 @enduml
 
@@ -160,6 +163,7 @@ enum Color {
     WHITE
     BLACK
 }
+
 
 Board *--> Case : "*\n -board" <<use>>
 Player *-l-> Piece : "*\n -pieces" <<use>>
