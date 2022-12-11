@@ -33,7 +33,7 @@ Les mouvements sont donnés par une liste de "coordonnées".
 
 09/12/2022 <br>
 
-Les mouvements donnés sont indépendants de tout plateau, car il n'a aucune vu sur le plateau de jeu.
+Les mouvements donnés sont indépendants de tout plateau, car il n'a aucune vu sur le plateau de jeu. C'est une préférence algorithmique lors des vérifications plateau.
 
 Joueur
 ------
@@ -57,9 +57,17 @@ Instancie le plateau et les joueurs, le Main pour commencer la partie.
 Classe façade qui enveloppe le plateau et les joueurs, notamment utile pour la capture de pièces : changements de score et ajout de pièce capturé dans joueur. <br>
 Mettra à jour la vue et utiliser comme intermédiaire pour modifier le model par le controller.
 
+11/12/2022 <br>
+
+Met à jour le model et non la vue.
+
 Main
 ----
 
 09/12/2022 <br>
 
 Instancie une partie et la lance (Board, Player, Game).
+
+11/12/2022 <br>
+
+Créer aussi controller et vues.

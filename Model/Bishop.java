@@ -12,9 +12,9 @@ public class Bishop extends Piece{
         range = 8;
     }
 
-    public ArrayList<int[]> moves()
+    public ArrayList<Position> moves()
     {
-        return new ArrayList(Arrays.asList(new int[] {1,1}, new int[] {1,-1}, new int[] {-1,-1}, new int[] {-1,-1})); // Déplacements diagonales
+        return new ArrayList(Arrays.asList(new Position (1,1), new Position (1,-1), new Position (-1,-1), new Position (-1,-1))); // Déplacements diagonales
     }
 
 }

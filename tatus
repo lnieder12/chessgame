@@ -1,0 +1,54 @@
+[33mcommit 8217726946059057cf65acaffc8de3b13de30d56[m[33m ([m[1;36mHEAD -> [m[1;32mtravail[m[33m)[m
+Author: Léo Niederberger <leo.niederberger-vialle@etu.unistra.fr>
+Date:   Fri Dec 9 12:31:13 2022 +0100
+
+    Pieces enlever de player, maj uml sur changement model, ajout de facade Game dans uml
+
+[33mcommit aed83e4f434b7ce124fe02f233dfdd8c53ad5b14[m
+Author: Léo Niederberger <leo.niederberger-vialle@etu.unistra.fr>
+Date:   Thu Dec 1 15:23:44 2022 +0100
+
+    Ajout de toutes les pieces, players et board, ajout de responsabilité au board (regarder rapport)
+
+[33mcommit 3b233a53ac83372ca8b32b564256d1de054c54b5[m
+Merge: 0df4c6e 57e3a55
+Author: Léo Niederberger <leo.niederberger-vialle@etu.unistra.fr>
+Date:   Thu Dec 1 13:50:34 2022 +0100
+
+    Merge branch 'travail' of git.unistra.fr:niederberger/a31-chessgame into travail
+
+[33mcommit 0df4c6e1817867aef7c6ab285bd2a5b5f28e8651[m
+Author: Léo Niederberger <leo.niederberger-vialle@etu.unistra.fr>
+Date:   Wed Nov 30 17:36:11 2022 +0100
+
+    Définition de la classe abstraite Piece, et exemple d'une classequi l'hérite Pawn
+
+[33mcommit 57e3a55e44e3544a4f692ed28ec26644c15e88de[m
+Author: KHENISSI TEJEDDINNE <tejeddinne.khenissi@etu.unistra.fr>
+Date:   Thu Nov 24 13:46:15 2022 +0000
+
+    a voir si on fait la class case
+
+[33mcommit dec9d38d6cdc46d07c33bf7554651bd6e69c6bbf[m
+Author: Léo Niederberger <leo.niederberger-vialle@etu.unistra.fr>
+Date:   Thu Nov 24 12:30:18 2022 +0100
+
+    Création de l'uml et début rapport
+
+[33mcommit e53b267e4f43dd7849d61c760b43495b34beacc4[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: akrah <krahenbuhl@unistra.fr>
+Date:   Mon Nov 21 12:28:21 2022 +0100
+
+    Mise à jour du sujet
+
+[33mcommit 74e30fb4dad15430a784c3f44978529c59cea9cc[m
+Author: akrah <krahenbuhl@unistra.fr>
+Date:   Mon Nov 21 11:56:03 2022 +0100
+
+    Mise à jour du sujet
+
+[33mcommit a638363a22b91d17eb6f81a979c16aded27216e7[m
+Author: Etienne Le Quentrec <elequentrec@unistra.fr>
+Date:   Mon Nov 21 10:16:08 2022 +0100
+
+    ajout du README.md contenant les consignes du projet

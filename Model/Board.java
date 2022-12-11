@@ -47,35 +47,37 @@ public class Board {
             board[7 - j/8][7 - j%8] = pp2.get(j);
     }
 
-    public Piece getPiece(int[] pos)
+    public Piece getPiece(Position pos)
     {
-        return board[pos[0]][pos[1]];
+        return board[pos.x][pos.y];
     }
 
-    public void setPiece(int[] pos, Piece p)
+    public void setPiece(Position pos, Piece p)
     {
-        board[pos[0]][pos[1]] = p;
+        board[pos.x][pos.y] = p;
     }
 
-    public boolean pieceChecked(Piece piece)
+    /*public boolean pieceChecked(Piece piece)
     {
         return false;
     }
+     */
 
-    public int[][] validMoves(int[] pos)
+    // Renvoie un calque du plateau avec les cases atteignables
+    public ArrayList<Position> validMoves(Position pos)
     {
-        int[][] reachableCases = new int[8][8];
+        ArrayList<Position> reachableCases = new ArrayList<>();
         Piece piece = getPiece(pos);
         if(piece != null) {
-            int[] testCase = new int[2];
-            ArrayList<int[]> moves = piece.moves();
+            Position testCase = new Position();
+            ArrayList<Position> moves = piece.moves();
             for(int i = 0; i < piece.getRange(); i++)
             {
-                for (int[] mo : moves) {
-                    testCase[0] = pos[0] + mo[0];
-                    testCase[1] = pos[1] + mo[1];
+                for (Position mo : moves) {
+                    testCase.x = pos.x + mo.x;
+                    testCase.y = pos.y + mo.y;
                     if(getPiece(testCase).getColor() != piece.getColor())
-                        reachableCases[testCase[0]][testCase[1]] = 1;
+                        reachableCases.add(testCase);
                     else
                         moves.remove(mo);
                 }
@@ -88,7 +90,7 @@ public class Board {
 
     }
 
-    public void movePiece(int[] initial, int[] end)
+    public void movePiece(Position initial, Position end)
     {
         setPiece(end, getPiece(initial));
         setPiece(initial, null);

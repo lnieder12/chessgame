@@ -10,12 +10,23 @@ package Model{
 
     class Game {
 
-        + Game(board : Board, pW : Player, pB : Player)
+        + Game(pBoard : Board, pW : Player, pB : Player)
 
     }
 
     class Board {
-        + getPiece(Integer[] : position) : Piece
+        + getPiece(pos : Position) : Piece
+        + Board()
+        + getPiece(pos : Position) : Piece
+        + setPiece(pos : Position, p : Piece)
+        + validMoves(pos : Position) : Position[]
+        + movePiece(initial : Position, end : Position)
+    }
+
+    class Position {
+        + x : Integer
+        + y : Integer
+        + Position(pX : Integer, pY : Integer)
     }
 
     class Player {
@@ -30,52 +41,60 @@ package Model{
         - value : Integer
         - range : Integer
         + Piece(pColor : Color)
-        + {abstract} moves() : Integer[]
+        + {abstract} moves() : Position[]
 
     }
 
     class King extends Piece {
         - asMoved : Boolean
         - range : Integer
-        + King(color : Color)
-        + moves() : Integer[]
+        + King(pColor : Color)
+        + moves() : Position[]
     }
 
     class Queen extends Piece {
         - value : Integer
         - range : Integer
-        + Queen(color : Color)
-        + moves() : Integer[]
+        + Queen(pColor : Color)
+        + moves() : Position[]
     }
 
     class Pawn extends Piece {
         - asMoved : Boolean
         - value : Integer
         - range : Integer
-        + Pawn(color : Color)
-        + moves() : Integer[]
+        + Pawn(pColor : Color)
+        + moves() : Position[]
     }
 
     class Bishop extends Piece {
         - value : Integer
         - range : Integer
-        + Bishop(color : Color)
-        + moves() : Integer[]
+        + Bishop(pColor : Color)
+        + moves() : Position[]
     }
 
     class Knight extends Piece {
         - value : Integer
         - range : Integer
-        + Knight(color : Color)
-        + moves() : Integer[]
+        + Knight(pColor : Color)
+        + moves() : Position[]
     }
 
     class Rook extends Piece {
         - asMoved : Boolean
         - value : Integer
         - range : Integer
-        + Rook(color : Color)
-        + moves() : Integer[]
+        + Rook(pColor : Color)
+        + moves() : Position[]
+    }
+
+    interface ObserverBoard {
+
+    }
+
+    interface ObserverPlayer {
+
     }
 
     enum Color {
@@ -84,90 +103,53 @@ package Model{
     }
 }
 
+package Controller{
+    class GameController{
+
+    }
+
+}
+
+package View {
+    class PlayView implements ObserverPlayer {
+
+    }
+    class BoardView implements ObserverBoard {
+
+    }
+}
+
+class Main {
+
+}
+
 Game *--> "1\n-board" Board : <<has>>
 Game *--> "1\n-pWhite" Player : <<has>>
 Game *--> "1\n-pBlack" Player : <<has>>
 Board *--> "2..32\n-board" Piece :  <<use>>
 Player o--> "0..15\n-capturedPieces" Piece : <<use>>
 Piece *--> "1\n-color" Color :  <<has>>
+
+/'
+    'Moins lisible avec
+Pawn *--> "1\n-color" Color :  <<has>>
+King *--> "1\n-color" Color :  <<has>>
+Queen *--> "1\n-color" Color :  <<has>>
+Rook *--> "1\n-color" Color :  <<has>>
+Bishop *--> "1\n-color" Color :  <<has>>
+Knight *--> "1\n-color" Color :  <<has>>
+'/
 Player *--> "1\n-color" Color :  <<has>>
-
-@enduml
-
-@startuml
-'https://plantuml.com/sequence-diagram
-
-skinparam style strictuml
-skinparam classAttributeIconSize 0
-skinparam classFontStyle Bold
-hide enum methods
-
-class Board {
+GameController o--> "1\n-board" Game : <<modifie>>
+Player o--> "1\n-obs" ObserverPlayer : <<observe>>
+Board o--> "1\n-obs" ObserverBoard : <<observe>>
+Main ..> Game : <<create>>
+Main ..> Board : <<create>>
+Main ..> Player : <<create>>
+Main ..> GameController : <<create>>
+Main ..> PlayView : <<create>>
+Main ..> BoardView : <<create>>
 
 
-    - board : Case[]
-    - isChecked() : Boolean
-    + getPiece(Position) : Piece
-}
-
-class Player {
-    - points : Integer
-    - name : String
-    + movePiece(piece : Piece , case : Case)
-}
-
-class Piece {
-
-    - value : Integer
-    - color : String
-    - moves : Integer
-    - range : Integer
-    + {abstract} moves() : Integer[][]
-}
-
-class Case{
-- piece : Piece
-- cordX : Integer
-- cordY : Integer
-+ setPiece(piece : Piece)
-+ getPiece() : Piece
-+ IsEmpty() : Boolean
-
-}
-
-class King extends Piece {
-    - asMoved : Boolean
-}
-
-class Queen extends Piece {
-
-}
-
-class Pawn extends Piece {
-    - asMoved : Boolean
-}
-
-class Bishop extends Piece {
-
-}
-
-class Knight extends Piece {
-
-}
-
-class Rook extends Piece {
-    - asMoved : Boolean
-}
-
-enum Color {
-    WHITE
-    BLACK
-}
-
-
-Board *--> Case : "*\n -board" <<use>>
-Player *-l-> Piece : "*\n -pieces" <<use>>
-Player *--> Piece : "*\n -capturedPieces" <<use>>
-Piece *--> Color : "1\n -color" <<use>>
 
 @enduml

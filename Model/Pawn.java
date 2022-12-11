@@ -16,8 +16,8 @@ public class Pawn extends Piece{
         range = 1;
     }
 
-    public ArrayList<int[]> moves()
+    public ArrayList<Position> moves()
     {
-        return new ArrayList(Arrays.asList(new int[] {1,0}));
+        return new ArrayList(Arrays.asList(new Position(1,0)));
     } // Vers l'avant
 }

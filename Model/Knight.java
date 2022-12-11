@@ -12,10 +12,10 @@ public class Knight extends Piece{
         range = 1;
     }
 
-    public ArrayList<int[]> moves()
+    public ArrayList<Position> moves()
     {
-        return new ArrayList(Arrays.asList(new int[] {2,1}, new int[] {2,-1}, new int[] {1,2}, new int[] {-1,2} // Déplacements en L
-                , new int[] {-2,1}, new int[] {-2,-1}, new int[] {1,-2}, new int[] {-1,-2}));
+        return new ArrayList(Arrays.asList(new Position (2,1), new Position (2,-1), new Position (1,2), new Position (-1,2) // Déplacements en L
+                , new Position (-2,1), new Position (-2,-1), new Position (1,-2), new Position (-1,-2)));
     }
 
 }

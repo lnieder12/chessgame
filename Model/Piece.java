@@ -18,6 +18,6 @@ public abstract class Piece {
 
     public Colors getColor(){return color;}
 
-    abstract ArrayList<int[]> moves();
+    abstract ArrayList<Position> moves();
 
 }
