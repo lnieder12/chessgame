@@ -122,3 +122,13 @@ Le rendu est à faire sur votre dépôt Git sur une branche nommé `rendu2`.
 - Les rapports et le mode d'emploi doivent être au format Markdown.
 - À la fin du projet, votre dépôt devra contenir au minimum une branche `rendu1` et une branche `rendu2`, ce seront les seules branches évaluées. Vous êtes libre de gérer le reste de votre dépôt comme vous le souhaitez.
 - Pensez à vérifier que votre exécutable fonctionne aussi bien sur Linux, Windows et Mac.
+
+
+### Installation/Lancement
+
+A la racine du projet git il y a le fichier chessgame.jar executable en double click ou bien avec la commande
+```
+java -jar chessgame.jar
+```
+
+Il est nécessaire d'avoir un JDK installer.

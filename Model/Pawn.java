@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Pawn extends Piece{
 
-    boolean asMoved;
+    public boolean asMoved;
 
     public Pawn(Colors pColor)
     {
@@ -14,6 +14,7 @@ public class Pawn extends Piece{
         asMoved = false;
         value = 1;
         range = 1;
+        name = "Pawn";
     }
 
     public ArrayList<Position> moves()

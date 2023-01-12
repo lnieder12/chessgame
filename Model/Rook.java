@@ -12,6 +12,7 @@ public class Rook extends Piece{
         asMoved = false;
         value = 5;
         range = 8;
+        name = "Rook";
     }
 
     public ArrayList<Position> moves()

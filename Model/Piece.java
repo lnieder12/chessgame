@@ -7,7 +7,9 @@ public abstract class Piece {
 
     protected int range;
 
-    Colors color;
+    private Colors color;
+
+    protected String name;
 
     public Piece (Colors pColor)
     {
@@ -19,5 +21,10 @@ public abstract class Piece {
     public Colors getColor(){return color;}
 
     abstract ArrayList<Position> moves();
+
+    public String getName()
+    {
+        return name;
+    }
 
 }

@@ -10,6 +10,7 @@ public class Knight extends Piece{
         super(pColor);
         value = 3;
         range = 1;
+        name = "Knight";
     }
 
     public ArrayList<Position> moves()

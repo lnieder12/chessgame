@@ -13,12 +13,13 @@ public class King extends Piece{
         asMoved = false;
         value = 0;
         range = 1;
+        name = "King";
     }
 
     public ArrayList<Position> moves()
     {
         return new ArrayList(Arrays.asList(new Position (1,0), new Position (-1,0), new Position (0,1), new Position (0,-1) // Déplacements latéraux
-                                        , new Position (1,1), new Position (1,-1), new Position (-1,-1), new Position (-1,-1))); // Déplacements diagonales
+                                        , new Position (1,1), new Position (1,-1), new Position (-1,-1), new Position (-1,1))); // Déplacements diagonales
     }
 
 }
